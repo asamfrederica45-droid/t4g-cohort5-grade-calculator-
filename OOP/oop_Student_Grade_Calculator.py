@@ -32,3 +32,35 @@ class Student:
             else:
                 self.grades.append("F")
         self.message = self.get_message()
+    def get_message(self):
+        feedback = {
+            "A": "Excellent work!",
+            "B": "Good job!",
+            "C": "You can do better.",
+            "D": "Needs improvement.",
+            "F": "Failing. Please seek help.",
+        }
+        worst_grade = max(self.grades, key=lambda g: "ABCDF".index(g))
+        return feedback[worst_grade]
+    
+    def display(self):
+        print(f"\n--- Grade Report for {self.name} ---")
+        print(f"Scores  : {self.scores}")
+        print(f"Average : {self.average}")
+        print(f"Grades  : {self.grades}")
+        print(f"Message : {self.message}")
+        print("--------------------")
+        
+"""Display the grade report for the student."""
+while True:
+    name = input("Enter the student's name: ")  
+    student = Student(name, [], 0, [], "")
+    student.start()
+    student.enter_scores()
+    student.find()
+    student.message = student.get_message()
+    student.display()
+    again = input("\nAdd another student? (y/n): ").lower()
+    if again != "y":
+        print("\nAll done. Goodbye!")
+        break
