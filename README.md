@@ -14,5 +14,5 @@ Fredericka and Jessica — built as part of the T4G Cohort 5 Python coding progr
 How to Run
 	1.	Make sure Python 3 is installed on your machine.
 	2.	Open a terminal in the project folder.
-	3.	Run: python3 start.py
-      4.	Follow the prompts
+	3.	Run: python3 Student_Grade_Calculator.py
+    4.	Follow the prompts.

@@ -40,3 +40,50 @@ def get_grades(scores):
         else:
             grades.append("F")
     return grades
+
+def get_message(name, scores, grades):
+    """Return a message with the student's name, scores, and grades."""
+    feedback = {
+        "A": "Excellent work!",
+        "B": "Good job!",
+        "C": "You can do better.",
+        "D": "Needs improvement.",
+        "F": "Failing. Please seek help.",
+    }
+    # Use the lowest grade earned to decide the overall feedback line
+    worst_grade = max(grades, key=lambda g: "ABCDF".index(g))
+    return {feedback[worst_grade]}
+
+
+def print_report(name, scores, average, grades, message):
+    """Print the full grade report."""
+    print("\n--- Grade Report ---\n")
+    print(f"Student : {name}")
+    print(f"Scores  : {scores}")
+    print(f"Average : {average}")
+    print(f"Grades  : {grades}")
+    print(message)
+    print("--------------------")
+
+
+def main():
+    """Main function to run the student grade calculator."""
+    while True:
+        name = get_name()
+        scores = get_scores()
+
+        if not scores:
+            print(f"No scores entered for {name}. Skipping.\n")
+        else:
+            average = calculate_average(scores)
+            grades = get_grades(scores)
+            message = get_message(name, scores, grades)
+            print_report(name, scores, average, grades, message)
+
+        again = input("\nAdd another student? (y/n): ").lower()
+        if again != "y":
+            print("\nAll done. Goodbye!")
+            break
+
+
+main()
