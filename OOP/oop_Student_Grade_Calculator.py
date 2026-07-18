@@ -1,7 +1,7 @@
 # Using OOP
 class Student:
-    """Represents a student with their name, scores, average, grades, and feedback message."""
-    def __init__(self, name, scores, average, grades, message):
+    """Class to represent a student and their grades."""
+    def _init_(self, name, scores, average, grades, message):
         self.name = name
         self.scores = scores[:]
         self.average = average
