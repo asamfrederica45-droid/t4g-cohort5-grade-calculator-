@@ -1,7 +1,7 @@
 # Using OOP
 class Student:
     """Class to represent a student and their grades."""
-    def _init_(self, name, scores, average, grades, message):
+    def __init__(self, name, scores, average, grades, message):
         self.name = name
         self.scores = scores[:]
         self.average = average
@@ -10,7 +10,7 @@ class Student:
     
     """Instance methods to handle student data and grades."""
     def start(self):
-        """Prrint a welcome message asking for the student's name."""
+        """Print a welcome message asking for the student's name."""
         print(f"Please, enter the grades for your student {self.name}")
     
     def enter_scores(self):
@@ -27,7 +27,7 @@ class Student:
                     score = int(input(f"Enter score for subject {i + 1}: "))
                     self.scores.append(score)
                     break
-                except ValueError:
+                except ValueError: # Added exception handling for non-integer input
                     print("We need numbers to produce something meaningful.")
                 
     def find(self):
