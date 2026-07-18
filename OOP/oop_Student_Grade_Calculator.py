@@ -1,7 +1,7 @@
 # Using OOP
 class Student:
-    """Class to represent a student and their grades."""
-    def _init_(self, name, scores, average, grades, message):
+    """Represents a student with their name, scores, average, grades, and feedback message."""
+    def __init__(self, name, scores, average, grades, message):
         self.name = name
         self.scores = scores[:]
         self.average = average
@@ -10,6 +10,7 @@ class Student:
     
     """Instance methods to handle student data and grades."""
     def start(self):
+        """Prrint a welcome message asking for the student's name."""
         print(f"Please, enter the grades for your student {self.name}")
     
     def enter_scores(self):
@@ -17,7 +18,7 @@ class Student:
             try:
                num = int(input(f"How many subjects does {self.name} have? "))
                break
-            except ValueError:
+            except ValueError: # Added exception handling for non-integer input
                 print("Enter a valid number please")
 
         for i in range(num):
@@ -30,6 +31,7 @@ class Student:
                     print("We need numbers to produce something meaningful.")
                 
     def find(self):
+        """Calculate the average and grades for the student."""
         self.average = sum(self.scores) / len(self.scores)
         for score in self.scores:
             if score >= 90:
@@ -43,7 +45,9 @@ class Student:
             else:
                 self.grades.append("F")
         self.message = self.get_message()
+    
     def get_message(self):
+        """Return a feedback message based on the student's grades."""
         feedback = {
             "A": "Excellent work!",
             "B": "Good job!",
@@ -55,6 +59,7 @@ class Student:
         return feedback[worst_grade]
     
     def display(self):
+        """Print the student's grade report."""
         print(f"\n--- Grade Report for {self.name} ---")
         print(f"Scores  : {self.scores}")
         print(f"Average : {self.average}")
