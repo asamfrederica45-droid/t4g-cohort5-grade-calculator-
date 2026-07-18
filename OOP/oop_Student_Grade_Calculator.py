@@ -1,7 +1,7 @@
 # Using OOP
 class Student:
     """Class to represent a student and their grades."""
-    def __init__(self, name, scores, average, grades, message):
+    def _init_(self, name, scores, average, grades, message):
         self.name = name
         self.scores = scores[:]
         self.average = average
@@ -13,11 +13,22 @@ class Student:
         print(f"Please, enter the grades for your student {self.name}")
     
     def enter_scores(self):
-        num = int(input(f"How many subjects does {self.name} have? "))
+        while True:
+            try:
+               num = int(input(f"How many subjects does {self.name} have? "))
+               break
+            except ValueError:
+                print("Enter a valid number please")
+
         for i in range(num):
-            score = int(input(f"Enter score for subject {i + 1}: "))
-            self.scores.append(score)
-    
+            while True:
+                try:
+                    score = int(input(f"Enter score for subject {i + 1}: "))
+                    self.scores.append(score)
+                    break
+                except ValueError:
+                    print("We need numbers to produce something meaningful.")
+                
     def find(self):
         self.average = sum(self.scores) / len(self.scores)
         for score in self.scores:
