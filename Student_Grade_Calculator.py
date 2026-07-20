@@ -51,7 +51,7 @@ def get_message(name, scores, grades):
         "F": "Failing. Please seek help.",
     }
     # Use the lowest grade earned to decide the overall feedback line
-    worst_grade = max(grades, key=lambda g: "ABCDF".index(g))
+    worst_grade = max(grades)
     return {feedback[worst_grade]}
 
 
