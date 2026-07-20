@@ -55,7 +55,7 @@ class Student:
             "D": "Needs improvement.",
             "F": "Failing. Please seek help.",
         }
-        worst_grade = max(self.grades, key=lambda g: "ABCDF".index(g))
+        worst_grade = max(self.grades)
         return feedback[worst_grade]
     
     def display(self):
