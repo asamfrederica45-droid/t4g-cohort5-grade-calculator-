@@ -50,10 +50,8 @@ def get_message(name, scores, grades):
         "D": "Needs improvement.",
         "F": "Failing. Please seek help.",
     }
-    # Use the lowest grade earned to decide the overall feedback line
     worst_grade = max(grades)
     return {feedback[worst_grade]}
-
 
 def print_report(name, scores, average, grades, message):
     """Print the full grade report."""

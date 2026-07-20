@@ -66,8 +66,9 @@ class Student:
         print(f"Grades  : {self.grades}")
         print(f"Message : {self.message}")
         print("--------------------")
-        
-"""Display the grade report for the student."""
+   
+    def main():
+     """Display the grade report for the student."""
 while True:
     name = input("Enter the student's name: ")  
     student = Student(name, [], 0, [], "")
